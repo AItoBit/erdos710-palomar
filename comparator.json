@@ -1,0 +1,20 @@
+{
+  "challenge_module": "Challenge",
+  "solution_module": "Solution",
+  "theorem_names": [
+    "Erdos710.hall_iff_hasMatching",
+    "Erdos710.not_matching_iff_hall_failure",
+    "Erdos710.hasMatching_quadratic",
+    "Erdos710.f_spec",
+    "Erdos710.f_minimal",
+    "Erdos710.f_le_quadratic",
+    "Erdos710.f_ge_linear",
+    "Erdos710.f_one"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

@@ -1,0 +1,57 @@
+version: v0.4
+project:
+  name: Elementary matching results for Erdos problem 710
+  description: >-
+    A Hall marriage characterization for distinct multiples in the strict interval
+    (n,n+h), existence of the least admissible length f(n), and elementary bounds
+    n+1 <= f(n) <= n^2+1 for positive n, with f(1)=2.
+    This is supporting mathematics and does not establish an asymptotic formula.
+  authors:
+    - name: AItoBit
+      github: AItoBit
+  responsible_maintainers:
+    - name: AItoBit
+      github: AItoBit
+  license: Apache-2.0
+classification:
+  arxiv: [math.CO, math.NT]
+  msc2020: [05C70, 11A05]
+sources:
+  - title: Erdos problem 710
+    type: web page
+    location: https://www.erdosproblems.com/710
+    relationship: adapts
+    note: Only the finite matching setup and elementary supporting results are formalized.
+  - title: Mathlib finite Hall marriage theorem
+    type: formalization
+    location: https://github.com/leanprover-community/mathlib4/blob/0db6cb99b412983de54b59ecc1b0b2747542cda3/Mathlib/Combinatorics/Hall/Finite.lean
+    relationship: background
+related_formalizations:
+  - id: https://github.com/leanprover-community/mathlib4/tree/0db6cb99b412983de54b59ecc1b0b2747542cda3
+    relationship: builds-on
+    note: Uses the finite Hall marriage theorem and standard natural-number facts.
+status:
+  scope: >-
+    Hall equivalence, the finite Hall obstruction, quadratic existence, minimality,
+    elementary upper and lower bounds, and the one-divisor case only.
+    The supplied asymptotic claim and fractional certificate definition are excluded.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms: [propext, Classical.choice, Quot.sound]
+automation:
+  methods:
+    - method: agent
+      framework: Codex
+      tool_setup: Preparation and source inspection with Lean compilation checks.
+  notes: >-
+    The author supplied Erdos710_Research.lean. Codex separated statements from
+    proofs and prepared submission files. The original proof-generation process
+    has not been independently established.
+review:
+  status: unchecked
+  notes: No independent human mathematical review is claimed.
+fidelity:
+  divergences: >-
+    Only elementary supporting results are included. The original asymptotic
+    problem is not solved. Fin n indexes divisors 1 through n; both endpoints
+    of the candidate interval are excluded. Bounds exclude n=0 when necessary.
