@@ -80,7 +80,7 @@ theorem not_matching_iff_hall_failure (n h : ℕ) :
         (S.biUnion (neighbors n h)).card < S.card := by
   classical
   constructor
-  · intro h
+  · intro hnot
     have hn : ¬ HallCondition n h := by
       intro hh
       exact hnot ((hall_iff_hasMatching n h).mp hh)
@@ -109,6 +109,9 @@ theorem hasMatching_quadratic (n : ℕ) : HasMatching n (n * n + 1) := by
       Nat.eq_of_mul_eq_mul_right (by omega : 0 < n + 1) hij
     exact Fin.ext (by omega)
   · intro i
+    change n < (i.val + 1) * (n + 1) ∧
+      (i.val + 1) * (n + 1) < n + (n * n + 1) ∧
+      (i.val + 1) ∣ (i.val + 1) * (n + 1)
     have hi0 : 1 ≤ i.val + 1 := by omega
     have hiN : i.val + 1 ≤ n := by omega
     have hlo : n + 1 ≤ (i.val + 1) * (n + 1) := by
